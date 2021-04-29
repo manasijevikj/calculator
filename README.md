@@ -1,7 +1,7 @@
 # Calculator
 A simple calculator using HTML, CSS & Javascript
 
-You can see a live DEMO here.
+You can see a [live DEMO here](https://manasijevikj.github.io/calculator/).
 
 <img src="screenshot.png">
 
