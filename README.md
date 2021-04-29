@@ -8,4 +8,5 @@ You can see a [live DEMO here](https://manasijevikj.github.io/calculator/).
 ## Technologies used:
 * HTML
 * CSS 
+* Bootstrap
 * Javascript 
