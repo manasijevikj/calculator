@@ -31,18 +31,20 @@ let keyValuesService = {
 
     updateOperator: function (newOperator) {
         if (this.started == true) {
-            this.lastClickIsOperator = true;
+            if (this.lastClickIsOperator == false) {
+                this.lastClickIsOperator = true;
 
-            if (this.selectedOperator != null) {
-                this.updateCurrentValue();
-            }
-            else {
-                this.currentValue = this.wholeNumber;
-            }
+                if (this.selectedOperator != null) {
+                    this.updateCurrentValue();
+                }
+                else {
+                    this.currentValue = this.wholeNumber;
+                }
 
-            displayService.displayCurrentValue(this.currentValue);
-            this.wholeNumber = 0;
-            this.isFraction = false;
+                displayService.displayCurrentValue(this.currentValue);
+                this.wholeNumber = 0;
+                this.isFraction = false;
+            }
             this.selectedOperator = newOperator;
         }
     },
