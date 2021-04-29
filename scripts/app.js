@@ -5,23 +5,23 @@ let keyValuesService = {
     plusMinusBtn: document.getElementById("plusMinusBtn"),
     equalBtn: document.getElementById("equalBtn"),
     commaBtn: document.getElementById("commaBtn"),
-    selectedNumber: 0, // pocetni vrednosti za brojki
-    selectedOperator: null, // pocetni vrednosti za operator
-    wholeNumber: 0,  // celiot broj pred operacijata
-    historyString: "", // celiot string gore
-    currentValue: 0,  // momentalno izracunatiot rezultat no ne konecniot
-    started: false, // sme vnele brojki prvo
-    lastClickIsOperator: false, // poslednoto nesto sto e vneseno e operatorot
+    selectedNumber: 0,
+    selectedOperator: null,
+    wholeNumber: 0,
+    historyString: "",
+    currentValue: 0,
+    started: false,
+    lastClickIsOperator: false,
     isFraction: false,
     fraction: 10,
 
 
     updateNumber: function (newNumber) {
-        this.lastClickIsOperator = false;     // false na operator deka e stisnat broj
-        this.started = true;                // Pocetno e brojka
-        this.selectedNumber = newNumber;    //cifrata vo momentot
+        this.lastClickIsOperator = false;
+        this.started = true;
+        this.selectedNumber = newNumber;
         if (this.isFraction == false) {
-            this.wholeNumber = this.wholeNumber * 10 + this.selectedNumber; // celosniot broj plus poslednata selektirana cifra
+            this.wholeNumber = this.wholeNumber * 10 + this.selectedNumber;
         }
         else {
             this.wholeNumber = this.wholeNumber + this.selectedNumber / this.fraction;
@@ -30,13 +30,13 @@ let keyValuesService = {
     },
 
     updateOperator: function (newOperator) {
-        if (this.started == true) {     //ako e napisana prvata brojka ondak moze
-            this.lastClickIsOperator = true; // pisuvame deka posleden e stisnat operatorot
+        if (this.started == true) {
+            this.lastClickIsOperator = true;
 
             if (this.selectedOperator != null) {
-                this.updateCurrentValue(); // znacite
+                this.updateCurrentValue();
             }
-            else { // ako nema stisnato uste operator momentalnata vrednost da e kolku celiot broj
+            else {
                 this.currentValue = this.wholeNumber;
             }
 
@@ -47,13 +47,13 @@ let keyValuesService = {
         }
     },
 
-    updateHistoryNumber: function (number) { // string input od brojka
-        if (number != "0" || this.wholeNumber != 0) { // ako brojot ne e ednakov na nula ili celata cifra ne e ednakva na nula
+    updateHistoryNumber: function (number) {
+        if (number != "0" || this.wholeNumber != 0) {
             if (this.historyString.length >= 18) {
                 this.historyString = this.historyString.substring(1, 18);
             }
-            this.historyString += number; // na stringot gore mu ja dodavame novata vnesena brojka
-            displayService.displayHistoryString(this.historyString); // go dodavame stringot vo gorniot display
+            this.historyString += number;
+            displayService.displayHistoryString(this.historyString);
         }
     },
 
@@ -159,16 +159,16 @@ let displayService = {
     displayUp: document.getElementById("displayUp").innerHTML = 0,
     displayDown: document.getElementById("displayDown").innerHTML = 0,
 
-    displayCurrentValue: function (currentValue) {  // dolniot displej
+    displayCurrentValue: function (currentValue) {
         displayDown.innerHTML = currentValue;
     },
 
-    displayHistoryString: function (historyString) {    // gorniot displej
+    displayHistoryString: function (historyString) {
         if (historyString === "") {
             displayUp.innerHTML = 0;
         }
         else {
-            displayUp.innerHTML = historyString; //pooleto go zimame so dom i mu go davame celiot string
+            displayUp.innerHTML = historyString;
         }
     }
 }
@@ -176,43 +176,43 @@ let displayService = {
 let listenerService = {
     createNumbersListeners: function () {
         for (let number of keyValuesService.numberBtns) {
-            number.addEventListener("click", function (event) {         // liseneri za brojki
-                keyValuesService.updateHistoryNumber(event.target.innerHTML.trim()); // input string od edinicna brojka
-                keyValuesService.updateNumber(parseInt(event.target.innerHTML)); // izmeni za novata brojka parsirana
+            number.addEventListener("click", function (event) {
+                keyValuesService.updateHistoryNumber(event.target.innerHTML.trim());
+                keyValuesService.updateNumber(parseInt(event.target.innerHTML));
             })
         }
     },
 
     createOperatorListeners: function () {
         for (let operator of keyValuesService.operatorBtns) {
-            operator.addEventListener("click", function (event) {  //liseneri za operandi
+            operator.addEventListener("click", function (event) {
                 keyValuesService.updateHistoryOperator(event.target.innerHTML.trim());
-                keyValuesService.updateOperator(event.target.innerHTML.trim());     // dodavanje operacija
+                keyValuesService.updateOperator(event.target.innerHTML.trim());
             })
         }
     },
 
     createClearListener: function () {
-        keyValuesService.clearBtn.addEventListener("click", function (event) {  //liseneri za operandi
+        keyValuesService.clearBtn.addEventListener("click", function (event) {
             keyValuesService.clearAll();
         })
     },
 
     createPlusMinusListener: function () {
-        keyValuesService.plusMinusBtn.addEventListener("click", function (event) {  //lisener za plusMinus
+        keyValuesService.plusMinusBtn.addEventListener("click", function (event) {
             keyValuesService.historyPlusMinus();
             keyValuesService.plusMinus();
         })
     },
 
     createEqualListener: function () {
-        keyValuesService.equalBtn.addEventListener("click", function (event) {  //lisener za plusMinus
+        keyValuesService.equalBtn.addEventListener("click", function (event) {
             keyValuesService.equal();
         })
     },
 
     createCommaListener: function () {
-        keyValuesService.commaBtn.addEventListener("click", function (event) {  //lisener za plusMinus
+        keyValuesService.commaBtn.addEventListener("click", function (event) {
             keyValuesService.historyComma();
             keyValuesService.comma();
         })
