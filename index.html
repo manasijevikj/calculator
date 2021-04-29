@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+
+    <div class="container calculator">
+        <div class="row">
+            <div class="col-12 display" id="displayUp"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 display" id="displayDown"></div>
+        </div>
+
+        <div class="row firstKeys keys">
+            <div class="col-3 button btn operatorBtn" id="percentageBtn">
+                %
+            </div>
+            <div class="col-3 button btn " id="plusMinusBtn">
+                +/-
+            </div>
+            <div class="col-3 button button btn " id="cBtn">
+                C
+            </div>
+            <div class="col-3 button btn rightOperands operatorBtn" id="divideBtn">
+                /
+            </div>
+        </div>
+
+        <div class="row secondKeys keys">
+            <div class="col-3 button btn numberBtn" id="sevenBtn">
+                7
+            </div>
+            <div class="col-3 button btn numberBtn" id="eightBtn">
+                8
+            </div>
+            <div class="col-3 button btn numberBtn" id="nineBtn">
+                9
+            </div>
+            <div class="col-3 button btn rightOperands operatorBtn" id="productBtn">
+                x
+            </div>
+        </div>
+
+        <div class="row thirdKeys keys">
+            <div class="col-3 button btn numberBtn" id="fourBtn">
+                4
+            </div>
+            <div class="col-3 button btn numberBtn" id="fiveBtn">
+                5
+            </div>
+            <div class="col-3 button btn numberBtn" id="sixBtn">
+                6
+            </div>
+            <div class="col-3 button btn rightOperands operatorBtn" id="minusBtn">
+                -
+            </div>
+        </div>
+
+        <div class="row fourthKeys keys">
+            <div class="col-3 button btn numberBtn" id="oneBtn">
+                1
+            </div>
+            <div class="col-3 button btn numberBtn" id="twoBtn">
+                2
+            </div>
+            <div class="col-3 button btn numberBtn" id="threeBtn">
+                3
+            </div>
+            <div class="col-3 button btn rightOperands operatorBtn" id="plusBtn">
+                +
+            </div>
+
+        </div>
+        <div class="row fifthKeys keys">
+            <div class="col-3 button btn numberBtn" id="nullBtn">
+                0
+            </div>
+            <div class="col-3 button btn " id="commaBtn">
+                ,
+            </div>
+            <div class="col-6 button btn rightOperands " id="equalBtn">
+                =
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        <p id="seeOn">See on <a href="" id="gitHub"> <strong>GitHub</strong> </a></p>
+    </div>
+
+
+    <!-- Background -->
+    <div class=" custom-shape-divider-bottom-1616539408">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                class="shape-fill"></path>
+        </svg>
+    </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
